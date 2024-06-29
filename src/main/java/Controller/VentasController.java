@@ -1,3 +1,12 @@
+package Controller;
+
+import DTO.FuncionDTO;
+import DTO.VentaDto;
+import Model.Funcion;
+import Enum.TipoGenero;
+import Enum.TipoTarjeta;
+import Model.Venta;
+
 import java.util.*;
 
 

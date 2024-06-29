@@ -1,3 +1,9 @@
+package Controller;
+
+import Model.CondicionesDescuento;
+import Model.TarjetaDescuento;
+import Enum.TipoTarjeta;
+
 import java.util.*;
 
 

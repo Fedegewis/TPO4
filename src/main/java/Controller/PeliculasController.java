@@ -1,3 +1,9 @@
+package Controller;
+
+import Model.Pelicula;
+import Enum.TipoGenero;
+import Enum.TipoProyeccion;
+
 import java.util.*;
 
 
