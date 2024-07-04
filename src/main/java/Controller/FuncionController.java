@@ -1,6 +1,9 @@
 package Controller;
 
 import DTO.FuncionDTO;
+import DTO.FuncionDto;
+import DTO.PeliculaDto;
+import DTO.SalaDto;
 import Model.*;
 
 import java.util.*;
@@ -12,10 +15,11 @@ public class FuncionController {
 	
 	private List<Funcion> funciones;
 
-	private static FuncionController instancia=FuncionController.getInstancia();
+	private static FuncionController instancia;
 	
 	private FuncionController() {
-    	funciones = new ArrayList<Funcion>();
+
+        funciones = new ArrayList<Funcion>();
     	funciones.add(new Funcion(new Date(), 1, "11:00", new ArrayList<Entrada>(), new Sala(0, null, 0),
                 new Pelicula(TipoGenero.Terror,"steven spielberg",120,"Tiburon", TipoProyeccion.DosD,new ArrayList<>(),null)));
 
@@ -30,7 +34,16 @@ public class FuncionController {
     /**
      * Default constructor
      */
+    public boolean nuevaFuncion(FuncionDto funcion, PeliculaDto pelicula){
+        PeliculasController peliculasController = PeliculasController.getInstance();
+        Pelicula peliculaOK=peliculasController.getPelicula(pelicula);
+        if(funcion != null && pelicula !=null ){
+            if (peliculaOK!=null){
 
+            }
+        }
+
+    }
 
 
 
@@ -94,5 +107,14 @@ public class FuncionController {
             }
         }
         return funciones;
+    }
+
+    public static Funcion toModel(FuncionDto funcionDto,Pelicula pelicula){
+        return new Funcion(Date.parse(funcionDto.getFecha()),Integer.parseInt(funcionDto.getFuncionID()),funcionDto.getHorario(),
+              funcionDto.getSala(),pelicula);
+    }
+
+    public static Sala toModel(SalaDto salaDto){
+
     }
 }

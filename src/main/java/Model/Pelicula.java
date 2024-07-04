@@ -49,7 +49,13 @@ public class Pelicula {
     }
 
 
+    public String getNombrePelicula() {
+        return nombrePelicula;
+    }
 
+    public String getDirector(){
+        return director;
+    }
 
     /**
      * 

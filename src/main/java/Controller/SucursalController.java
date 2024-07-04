@@ -16,17 +16,22 @@ public class SucursalController {
     /**
      * Default constructor
      */
-	
+	private static SucursalController instancia= null;
 	private List<Sucursal> sucursales;
 		
-    public SucursalController() {
+    private  SucursalController() {
     	sucursales = new ArrayList<Sucursal>();
     	sucursales.add(new Sucursal(1, "Barracas", "Av Montes de Oca 1100"));
 
     	
     }
 
-
+    public static SucursalController getInstancia() {
+        if (instancia == null) {
+            instancia = new SucursalController();
+        }
+        return instancia;
+    }
     public Sucursal deDtoASucursal(SucursalDto dto){
         Sucursal sucursal=new Sucursal(Integer.parseInt(dto.getSucursalID()),dto.getDenominacion(), dto.getDireccion());
         return sucursal;

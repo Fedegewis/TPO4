@@ -10,19 +10,19 @@ public class Funcion {
     private int funcionID;
     private String horario;
     private Date fecha;
-    private List<Entrada> entradas;
+    private List<Entrada> entradas= new ArrayList<Entrada>();
     private Sala sala;
     /**
      * Default constructor
      */
-    public Funcion(Date fecha, int funcionID, String horario, List<Entrada> entradas, Sala sala, Pelicula pelicula) {
-    	
-    	this.entradas = entradas;
+    public Funcion(Date fecha, int funcionID, String horario, Sala sala, Pelicula pelicula) {
+
     	this.fecha = fecha;
     	this.funcionID = funcionID;
     	this.horario = horario;    	
     	this.sala = sala;
     	this.pelicula = pelicula;
+
     	
     }
 
@@ -31,30 +31,23 @@ public class Funcion {
         return pelicula;
     }
 
-
-
     public List<Entrada> getEntradas() {
 
         return entradas;
     }
-
 
     public int getSalaID() {
         // TODO implement here
         return sala.getSalaID();
     }
 
-    /**
-     * @return
-     */
+
     public int getSucursalID() {
         // TODO implement here
         return sala.getSucursalID();
     }
 
-    /**
-     * @return
-     */
+
     public int getPeliculaID() {
         // TODO implement here
         if(Objects.nonNull(getPelicula().getPeliculaID())){
@@ -62,27 +55,17 @@ public class Funcion {
         }
         return 0;
     }
-
-    /**
-     * 
-     */
     public int getCantidadAsientosDisponibles() {
     	
 		return 0;
         // TODO implement here
     }
 
-    /**
-     * @return
-     */
     public int getFuncionID() {
 
         return this.funcionID;
     }
 
-    /**
-     * 	
-     */
     public Date getFecha() {
 		return fecha;
         // TODO implement here

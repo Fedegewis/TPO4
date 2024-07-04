@@ -1,4 +1,5 @@
 package Controller;
+import DTO.PeliculaDto;
 import Model.TipoGenero;
 import Model.Pelicula;
 import Model.TipoProyeccion;
@@ -13,7 +14,7 @@ import java.util.*;
 public class PeliculasController {
 	
 	private List<Pelicula> peliculas;
-    private static PeliculasController instance=PeliculasController.getInstance();
+    private static PeliculasController instance;
 	
     private PeliculasController() {
     	
@@ -28,9 +29,17 @@ public class PeliculasController {
         return instance;
     }
 
-    /**
-     * 
-     */
+    public Pelicula getPelicula(PeliculaDto peliculaDto){
+        Pelicula pelicula=null;
+        for(Pelicula p: peliculas){
+            if(p.getDirector().equals(peliculaDto.getDirector()) && p.getNombrePelicula().equals(peliculaDto.getNombrePelicula())){
+                pelicula=p;
+            }
+        }
+        return pelicula;
+    }
+
+
     public void ABM() {
         // TODO implement here
     }
