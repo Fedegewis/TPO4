@@ -1,7 +1,7 @@
 package Controller;
 
-import dto.FuncionDTO;
-import modelo.*;
+import DTO.FuncionDTO;
+import Model.*;
 
 import java.util.*;
 

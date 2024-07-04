@@ -1,8 +1,8 @@
 package Controller;
 
-import modelo.CondicionesDescuento;
-import modelo.TarjetaDescuento;
-import modelo.TipoTarjeta;
+import Model.CondicionesDescuento;
+import Model.TarjetaDescuento;
+import Model.TipoTarjeta;
 
 import java.util.*;
 
