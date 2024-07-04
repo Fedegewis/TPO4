@@ -1,7 +1,7 @@
 package Controller;
-import modelo.TipoGenero;
-import modelo.Pelicula;
-import modelo.TipoProyeccion;
+import Model.TipoGenero;
+import Model.Pelicula;
+import Model.TipoProyeccion;
 
 import java.util.*;
 

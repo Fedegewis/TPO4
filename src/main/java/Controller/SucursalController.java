@@ -1,9 +1,9 @@
 package Controller;
 
-import dto.SalaDto;
-import dto.SucursalDto;
-import modelo.Sala;
-import modelo.Sucursal;
+import DTO.SalaDto;
+import DTO.SucursalDto;
+import Model.Sala;
+import Model.Sucursal;
 
 import java.util.*;
 

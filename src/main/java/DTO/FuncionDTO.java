@@ -1,6 +1,6 @@
 package DTO;
 
-import modelo.Funcion;
+import Model.Funcion;
 
 public class FuncionDTO {
 
