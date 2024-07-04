@@ -15,11 +15,32 @@ public class SalaDto {
         return salaID;
     }
 
+    public void setSalaID(String salaID) {
+        this.salaID = salaID;
+    }
+
     public String getDenominacion() {
         return denominacion;
     }
 
+    public void setDenominacion(String denominacion) {
+        this.denominacion = denominacion;
+    }
+
     public String getAsientos() {
         return asientos;
+    }
+
+    public void setAsientos(String asientos) {
+        this.asientos = asientos;
+    }
+
+    @Override
+    public String toString() {
+        return "SalaDto{" +
+                "salaID='" + salaID + '\'' +
+                ", denominacion='" + denominacion + '\'' +
+                ", asientos='" + asientos + '\'' +
+                '}';
     }
 }

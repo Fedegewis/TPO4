@@ -43,4 +43,30 @@ public class PeliculaDto {
     public String getProyeccion() {
         return proyeccion;
     }
+
+    public void setGenero(String genero) {
+        this.genero = genero;
+    }
+
+    public void setNombrePelicula(String nombrePelicula) {
+        this.nombrePelicula = nombrePelicula;
+    }
+
+    public void setDuracionEnMinutos(String duracionEnMinutos) {
+        this.duracionEnMinutos = duracionEnMinutos;
+    }
+
+    public void setDirector(String director) {
+        this.director = director;
+    }
+
+    public void setActores(List<String> actores) {
+        this.actores = actores;
+    }
+
+    public void setProyeccion(String proyeccion) {
+        this.proyeccion = proyeccion;
+    }
+
+
 }
