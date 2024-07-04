@@ -4,7 +4,9 @@ package Model;
  * 
  */
 public class TarjetaDescuento {
-
+    private int tarjetaID;
+    private TipoTarjeta tipoTarjeta;
+    private String numeroTarjeta;
     /**
      * Default constructor
      */
@@ -14,26 +16,7 @@ public class TarjetaDescuento {
     	this.tipoTarjeta = tipoTarjeta;
     }
 
-    /**
-     * 
-     */
-    private int tarjetaID;
 
-    /**
-     * 
-     */
-    private TipoTarjeta tipoTarjeta;
-
-    /**
-     * 
-     */
-    private String numeroTarjeta;
-
-
-
-    /**
-     * @return
-     */
     public TipoTarjeta getTipoTarjeta() {
         // TODO implement here
         return null;

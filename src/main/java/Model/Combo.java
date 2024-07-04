@@ -4,7 +4,10 @@ package Model;
  * 
  */
 public class Combo {
-
+    private int comboID;
+    private String descripcion;
+    private float precio;
+    private CondicionesDescuento Contiene;
     /**
      * Default constructor
      */
@@ -15,33 +18,10 @@ public class Combo {
     	this.precio = precio;
     }
 
-    /**
-     * 
-     */
-    private int comboID;
 
-    /**
-     * 
-     */
-    private String descripcion;
-
-    /**
-     * 
-     */
-    private float precio;
-
-
-    /**
-     * 
-     */
-    public CondicionesDescuento Contiene;
-
-    /**
-     * @return
-     */
     public float getPrecio() {
         // TODO implement here
-        return 0.0f;
+        return precio;
     }
 
     /**

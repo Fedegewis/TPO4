@@ -1,7 +1,7 @@
 package Controller;
 
-import DTO.FuncionDTO;
-import Model.*;
+import dto.FuncionDTO;
+import modelo.*;
 
 import java.util.*;
 
@@ -12,13 +12,19 @@ public class FuncionController {
 	
 	private List<Funcion> funciones;
 
-	public static FuncionController instancia;
+	private static FuncionController instancia=FuncionController.getInstancia();
 	
-	FuncionController() {
+	private FuncionController() {
     	funciones = new ArrayList<Funcion>();
     	funciones.add(new Funcion(new Date(), 1, "11:00", new ArrayList<Entrada>(), new Sala(0, null, 0),
                 new Pelicula(TipoGenero.Terror,"steven spielberg",120,"Tiburon", TipoProyeccion.DosD,new ArrayList<>(),null)));
 
+    }
+    public static FuncionController getInstancia() {
+        if (instancia == null) {
+            instancia = new FuncionController();
+        }
+        return instancia;
     }
 
     /**

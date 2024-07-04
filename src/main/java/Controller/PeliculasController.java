@@ -1,8 +1,7 @@
 package Controller;
-
-import Model.Pelicula;
-import Enum.TipoGenero;
-import Enum.TipoProyeccion;
+import modelo.TipoGenero;
+import modelo.Pelicula;
+import modelo.TipoProyeccion;
 
 import java.util.*;
 
@@ -12,18 +11,21 @@ import java.util.*;
  */
     	
 public class PeliculasController {
-
-    /**
-     * Default constructor
-     */
 	
 	private List<Pelicula> peliculas;
+    private static PeliculasController instance=PeliculasController.getInstance();
 	
-    public PeliculasController() {
+    private PeliculasController() {
     	
     	peliculas= new ArrayList<Pelicula>();
     	peliculas.add(new Pelicula(TipoGenero.Suspenso, "Pelicula1", 180 , "Director X", TipoProyeccion.DosD, Arrays.asList("Actriz Principal", "Actor Secundario"),null));
 
+    }
+    public static PeliculasController getInstance() {
+        if (instance == null) {
+            instance = new PeliculasController();
+        }
+        return instance;
     }
 
     /**

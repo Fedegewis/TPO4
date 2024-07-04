@@ -1,8 +1,8 @@
 package Controller;
 
-import Model.CondicionesDescuento;
-import Model.TarjetaDescuento;
-import Enum.TipoTarjeta;
+import modelo.CondicionesDescuento;
+import modelo.TarjetaDescuento;
+import modelo.TipoTarjeta;
 
 import java.util.*;
 
@@ -17,12 +17,18 @@ public class DescuentoController {
 	
 	private List<CondicionesDescuento> Descuento;
 	
-    public DescuentoController() {
+    private DescuentoController() {
     	Descuento = new ArrayList<CondicionesDescuento>();
     	CondicionesDescuento CondicionesDescuento = new CondicionesDescuento(new Date(), new Date(), 5, 50, TipoTarjeta.PAMI, new ArrayList<TarjetaDescuento>());
     	Descuento.add(CondicionesDescuento);
     	
     }
+	public static DescuentoController getInstancia() {
+		if (instancia == null) {
+			instancia = new DescuentoController();
+		}
+		return instancia;
+	}
 
     /**
      * 

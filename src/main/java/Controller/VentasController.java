@@ -1,11 +1,8 @@
 package Controller;
 
-import DTO.FuncionDTO;
-import DTO.VentaDto;
-import Model.Funcion;
-import Enum.TipoGenero;
-import Enum.TipoTarjeta;
-import Model.Venta;
+import dto.FuncionDTO;
+import dto.VentaDto;
+import modelo.*;
 
 import java.util.*;
 
@@ -28,14 +25,20 @@ public class VentasController {
      */
     private List<Venta> ventas;
 
-    private FuncionController funcionController =  new FuncionController();
+    private FuncionController funcionController = FuncionController.getInstancia();
+    private static VentasController instance;
 	
-    public VentasController(){
+    private VentasController(){
         ventas = new ArrayList<Venta>();
         Venta venta = new Venta(1,new Date(), null, null);
         ventas.add(venta);
     }
-
+    public VentasController getInstancia(){
+        if(instance == null){
+            instance = new VentasController();
+        }
+        return instance;
+    }
 
     /**
      * @param funcionID 

@@ -5,6 +5,9 @@ package Model;
  */
 public class Entrada {
 
+    public Funcion funcion;
+    private float precio;
+    private int nroAsiento;
     /**
      * Default constructor
      */
@@ -22,29 +25,30 @@ public class Entrada {
         return precio;
     }
 
-    private float precio;
+
 
     /**
      * 
      */
-    private int nroAsiento;
+
 
     /**
      * 
      */
-    public Funcion funcion;
+
 
 
     public int getFuncionID() {
         // TODO implement here
-        return 0;
+        return funcion.getFuncionID();
     }
 
     /**
      * 
      */
-    public void getPeliculaID() {
+    public int getPeliculaID() {
         // TODO implement here
+        return funcion.getPeliculaID();
     }
 
 }

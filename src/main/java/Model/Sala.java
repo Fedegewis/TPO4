@@ -4,7 +4,9 @@ package Model;
  * 
  */
 public class Sala {
-
+    private int salaID;
+    private String denominacion;
+    private int asientos;
     /**
      * Default constructor
      */
@@ -14,26 +16,7 @@ public class Sala {
     	this.salaID = salaID;
     }
 
-    /**
-     * 
-     */
-    private int salaID;
 
-    /**
-     * 
-     */
-    private String denominacion;
-
-    /**
-     * 
-     */
-    private int asientos;
-
-
-
-    /**
-     * @return
-     */
     public int getSucursalID() {
         // TODO implement here
         return 0;
@@ -44,13 +27,14 @@ public class Sala {
      */
     public int getSalaID() {
         // TODO implement here
-        return 0;
+        return this.salaID;
     }
 
     /**
      * @return
      */
     public int getAsientos() {
+
         return this.asientos;
     }
 

@@ -6,7 +6,13 @@ import java.util.*;
  * 
  */
 public class Pelicula {
-
+    private TipoGenero generoID;
+    private String nombrePelicula;
+    private int duracionEnMinutos;
+    private String director;
+    private List<String> actores;
+    private TipoProyeccion tipo;
+    private CondicionesDescuento condicionesDescuento;
     /**
      * Default constructor
      */
@@ -20,53 +26,29 @@ public class Pelicula {
     this.tipo = tipo;
     this.condicionesDescuento = descuento;
     
-    
-    
     }
 
     public TipoGenero getGeneroID() {
+
         return generoID;
     }
 
     public void setGeneroID(TipoGenero generoID) {
+
         this.generoID = generoID;
     }
 
     /**
      * 
      */
-    private TipoGenero generoID;
 
-    /**
-     * 
-     */
-    private String nombrePelicula;
-
-    /**
-     * 
-     */
-    private int duracionEnMinutos;
-
-    /**
-     * 
-     */
-    private String director;
-
-    /**
-     * 
-     */
-    private List<String> actores;
-
-    /**
-     * 
-     */
-    private TipoProyeccion tipo;
 
     public CondicionesDescuento getCondicionesDescuento() {
+
         return condicionesDescuento;
     }
 
-    private CondicionesDescuento condicionesDescuento;
+
 
 
     /**

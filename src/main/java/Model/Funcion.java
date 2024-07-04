@@ -6,7 +6,12 @@ import java.util.*;
  * 
  */
 public class Funcion {
-
+    private Pelicula pelicula;
+    private int funcionID;
+    private String horario;
+    private Date fecha;
+    private List<Entrada> entradas;
+    private Sala sala;
     /**
      * Default constructor
      */
@@ -22,49 +27,21 @@ public class Funcion {
     }
 
     public Pelicula getPelicula() {
+
         return pelicula;
     }
 
-    /*
-    *
-    *
-    */
-    private Pelicula pelicula;
 
-    /**
-     * 
-     */
-    private int funcionID;
-
-    /**
-     * 
-     */
-    private String horario;
-
-    /**
-     * 
-     */
-    private Date fecha;
 
     public List<Entrada> getEntradas() {
+
         return entradas;
     }
 
-    /**
-     * 
-     */
-    private List<Entrada> entradas;
 
-    private Sala sala;
-
-
-
-    /**
-     * @return
-     */
     public int getSalaID() {
         // TODO implement here
-        return 0;
+        return sala.getSalaID();
     }
 
     /**
@@ -72,7 +49,7 @@ public class Funcion {
      */
     public int getSucursalID() {
         // TODO implement here
-        return 0;
+        return sala.getSucursalID();
     }
 
     /**

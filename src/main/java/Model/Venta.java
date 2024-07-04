@@ -6,7 +6,11 @@ import java.util.*;
  * 
  */
 public class Venta {
-
+    private int ventaID;
+    private Date fchVenta;
+    private List<Combo> combos;
+    private TarjetaDescuento tarjetaDescuento;
+    private Funcion funcion;
     /**
      * Default constructor
      */
@@ -20,17 +24,7 @@ public class Venta {
 	/**
      * 
      */
-    private int ventaID;
 
-    /**
-     * 
-     */
-    private Date fchVenta;
-
-    /**
-     * 
-     */
-    private List<Combo> combos;
 
     public Funcion getFuncion() {
         return funcion;
@@ -40,52 +34,35 @@ public class Venta {
         this.funcion = funcion;
     }
 
-    private Funcion funcion;
+
 
     public TarjetaDescuento getTarjetaDescuento() {
         return tarjetaDescuento;
     }
 
-    /**
-     *
-     */
-    private TarjetaDescuento tarjetaDescuento;
-
-    /**
-     * @return
-     */
     public int getFuncionID() {
         // TODO implement here
         return 0;
     }
 
-    /**
-     * @return
-     */
+
     public float getTotal() {
         // TODO implement here
         return 0.0f;
     }
 
-    /**
-     * 
-     */
     public int getPeliculaID() {
         // TODO implement here
         return 0;
     }
 
-    /**
-     * @return
-     */
+
     public TipoTarjeta getTipoTarjeta() {
         // TODO implement here
         return null;
     }
 
-    /**
-     * 
-     */
+
     public List<Combo> getListaComboID() {
 		return combos;
 		
