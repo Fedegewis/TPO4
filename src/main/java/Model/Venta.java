@@ -1,5 +1,7 @@
 package Model;
 
+import DTO.FuncionDto;
+
 import java.util.*;
 
 /**
@@ -34,7 +36,33 @@ public class Venta {
         this.funcion = funcion;
     }
 
+    public int getVentaID() {
+        return ventaID;
+    }
 
+    public void setVentaID(int ventaID) {
+        this.ventaID = ventaID;
+    }
+
+    public Date getFchVenta() {
+        return fchVenta;
+    }
+
+    public void setFchVenta(Date fchVenta) {
+        this.fchVenta = fchVenta;
+    }
+
+    public List<Combo> getCombos() {
+        return combos;
+    }
+
+    public void setCombos(List<Combo> combos) {
+        this.combos = combos;
+    }
+
+    public void setTarjetaDescuento(TarjetaDescuento tarjetaDescuento) {
+        this.tarjetaDescuento = tarjetaDescuento;
+    }
 
     public TarjetaDescuento getTarjetaDescuento() {
         return tarjetaDescuento;

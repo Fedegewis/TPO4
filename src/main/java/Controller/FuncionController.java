@@ -1,6 +1,6 @@
 package Controller;
 
-import DTO.FuncionDTO;
+
 import DTO.FuncionDto;
 import DTO.PeliculaDto;
 import DTO.SalaDto;
@@ -68,7 +68,7 @@ public class FuncionController {
      * @param fchFuncion 
      * @return
      */
-    public List<FuncionDTO> getListaFunciones(Date fchFuncion) {
+    public List<FuncionDto> getListaFunciones(Date fchFuncion) {
         // TODO implement here
         return null;
     }
@@ -114,7 +114,5 @@ public class FuncionController {
               funcionDto.getSala(),pelicula);
     }
 
-    public static Sala toModel(SalaDto salaDto){
-
-    }
+    public static Sala toModel(SalaDto salaDto){}
 }

@@ -1,12 +1,5 @@
 package DTO;
 
-import Model.Entrada;
-import Model.Pelicula;
-import Model.Sala;
-
-import java.util.Date;
-import java.util.List;
-
 public class FuncionDto {
     private PeliculaDto pelicula;
     private String funcionID;

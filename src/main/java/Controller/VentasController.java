@@ -1,6 +1,7 @@
 package Controller;
 
 import DTO.FuncionDTO;
+import DTO.FuncionDto;
 import DTO.VentaDto;
 import Model.*;
 
@@ -116,11 +117,12 @@ public class VentasController {
     }
 
     public VentaDto modelVentaToDto(Venta venta){
-        return new VentaDto(modelFuncionToDto(venta.getFuncion()));
+        return new VentaDto(String.valueOf(venta.getVentaID()),String.valueOf(venta.getFchVenta()),new ArrayList<String>(),
+                String.valueOf(venta.getTarjetaDescuento()),modelFuncionToDto(venta.getFuncion()));
     }
 
-    public FuncionDTO modelFuncionToDto(Funcion funcion){
-        return new FuncionDTO(funcion);
+    public FuncionDto modelFuncionToDto(Funcion funcion){
+        return new FuncionDto(funcion);
     }
 
 }
