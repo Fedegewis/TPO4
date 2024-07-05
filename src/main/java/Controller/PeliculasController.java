@@ -19,7 +19,6 @@ public class PeliculasController {
     private PeliculasController() {
     	
     	peliculas= new ArrayList<Pelicula>();
-    	peliculas.add(new Pelicula(TipoGenero.Suspenso, "Pelicula1", 180 , "Director X", TipoProyeccion.DosD, Arrays.asList("Actriz Principal", "Actor Secundario"),null,1));
 
     }
     public static PeliculasController getInstance() {
@@ -60,6 +59,7 @@ public class PeliculasController {
         for(Pelicula p: peliculas){
             if(p.getGeneroID().equals(genero)){
                 aux.add(p);
+
             }
         }
         return aux;

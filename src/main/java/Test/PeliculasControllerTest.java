@@ -46,7 +46,7 @@ class PeliculasControllerTest {
         List<Pelicula> Terror= peliculasController.consultarPeliculasPorGenero(TipoGenero.Terror);
         List<Pelicula> Suspenso= peliculasController.consultarPeliculasPorGenero(TipoGenero.Suspenso);
         assertEquals(1,Terror.size());
-        //assertEquals(2,Suspenso.size());
-//REVISARRRR
+        assertEquals(1,Suspenso.size());
+
     }
 }
