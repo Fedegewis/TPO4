@@ -38,4 +38,11 @@ public class Sala {
         return this.asientos;
     }
 
+    public String getDenominacion() {
+        return denominacion;
+    }
+
+    public void setDenominacion(String denominacion) {
+        this.denominacion = denominacion;
+    }
 }

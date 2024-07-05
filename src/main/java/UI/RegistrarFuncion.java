@@ -1,6 +1,254 @@
 package UI;
 
+import Controller.FuncionController;
+import DTO.FuncionDto;
+import DTO.PeliculaDto;
+import DTO.SalaDto;
+import Model.Pelicula;
+
 import javax.swing.*;
+import javax.swing.border.EmptyBorder;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.text.ParseException;
+import java.util.ArrayList;
 
 public class RegistrarFuncion extends JFrame {
+
+    public static  void main(String [] args){
+        EventQueue.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                try{
+                    RegistrarFuncion frame=new RegistrarFuncion();
+                    frame.setVisible(true);
+                } catch (Exception e){
+                    e.printStackTrace();
+                }
+            }
+        });
+    }
+
+    //esto le tengo que mandar a registrar funcion public boolean nuevaFuncion(FuncionDto funcionDto, PeliculaDto peliculaDto,Sala sala)
+
+    /*Funcion DTO tiene:
+    private PeliculaDto pelicula;
+    private String funcionID;
+    private String horario;
+    private String fecha;
+    private SalaDto sala;
+
+     */
+
+    /*Pelicula DTO tiene:
+    private String genero;
+    private String nombrePelicula;
+    private String duracionEnMinutos;
+    private String director;
+    private List<String> actores=new ArrayList<String>();
+    private String proyeccion;
+    private String peliculaID;
+     */
+
+
+    public RegistrarFuncion() {
+        setTitle("Registrar Funcion");
+        setBounds(100, 100, 600, 550);
+        JPanel contentPane = new JPanel();
+        contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+        setContentPane(contentPane);
+        contentPane.setLayout(null);
+
+
+        JLabel lblnombrePelicula = new JLabel("Nombre Pelicula:");
+        lblnombrePelicula.setBounds(10, 11, 150, 14);
+        contentPane.add(lblnombrePelicula);
+
+        JTextField txtNombrePelicula = new JTextField();
+        txtNombrePelicula.setBounds(200, 11, 305, 20);
+        contentPane.add(txtNombrePelicula);
+        txtNombrePelicula.setColumns(10);
+
+        JLabel lblGenero = new JLabel("Genero: ");
+        lblGenero.setBounds(10, 41, 150, 14);
+        contentPane.add(lblGenero);
+
+        JTextField txtGenero = new JTextField();
+        txtGenero.setBounds(200, 41, 305, 20);
+        contentPane.add(txtGenero);
+        txtGenero.setColumns(10);
+
+        JLabel lblDirector = new JLabel("Director:");
+        lblDirector.setBounds(10, 71, 150, 14);
+        contentPane.add(lblDirector);
+
+        JTextField txtDirector = new JTextField();
+        txtDirector.setBounds(200, 71, 305, 20);
+        contentPane.add(txtDirector);
+        txtDirector.setColumns(10);
+
+        JLabel lblDuracionEnMinutos = new JLabel("Duracion:");
+        lblDuracionEnMinutos.setBounds(10, 101, 150, 14);
+        contentPane.add(lblDuracionEnMinutos);
+
+        JTextField txtDuracionEnMinutos = new JTextField();
+        txtDuracionEnMinutos.setBounds(200, 101, 305, 20);
+        contentPane.add(txtDuracionEnMinutos);
+        txtDuracionEnMinutos.setColumns(10);
+
+        JLabel lblSala = new JLabel("Sala:");
+        lblSala.setBounds(10, 131, 150, 14);
+        contentPane.add(lblSala);
+
+        JTextField txtSala = new JTextField();
+        txtSala.setBounds(200, 131, 305, 20);
+        contentPane.add(txtSala);
+        txtSala.setColumns(10);
+
+        JLabel lblDenominacionSala = new JLabel("Denominacion de Sala:");
+        lblDenominacionSala.setBounds(10, 161, 150, 14);
+        contentPane.add(lblDenominacionSala);
+
+        JTextField txtDenominacion = new JTextField();
+        txtDenominacion.setBounds(200, 161, 305, 20);
+        contentPane.add(txtDenominacion);
+        txtDenominacion.setColumns(10);
+
+        JLabel lblAsientos = new JLabel("Cantidad de Asientos:");
+        lblAsientos.setBounds(10, 191, 150, 14);
+        contentPane.add(lblAsientos);
+
+        JTextField txtAsientos = new JTextField();
+        txtAsientos.setBounds(200, 191, 305, 20);
+        contentPane.add(txtAsientos);
+        txtAsientos.setColumns(10);
+
+        JLabel lblPeliculaID = new JLabel("Pelicula ID:");
+        lblPeliculaID.setBounds(10, 221, 150, 14);
+        contentPane.add(lblPeliculaID);
+
+        JTextField txtPeliculaID = new JTextField();
+        txtPeliculaID.setBounds(200, 221, 305, 20);
+        contentPane.add(txtPeliculaID);
+        txtPeliculaID.setColumns(10);
+
+        JLabel lblFuncionID = new JLabel("Numero de funcion:");
+        lblFuncionID.setBounds(10, 251, 150, 14);
+        contentPane.add(lblFuncionID);
+
+        JTextField txtFuncionID = new JTextField();
+        txtFuncionID.setBounds(200, 251, 305, 20);
+        contentPane.add(txtFuncionID);
+        txtFuncionID.setColumns(10);
+
+        JLabel lblHorario = new JLabel("Horario:");
+        lblHorario.setBounds(10, 281, 150, 14);
+        contentPane.add(lblHorario);
+
+        JTextField txtHorario = new JTextField();
+        txtHorario.setBounds(200, 281, 305, 20);
+        contentPane.add(txtHorario);
+        txtHorario.setColumns(10);
+
+        JLabel lblFecha = new JLabel("Fecha:");
+        lblFecha.setBounds(10, 311, 150, 14);
+        contentPane.add(lblFecha);
+
+        JTextField txtFecha = new JTextField();
+        txtFecha.setBounds(200, 311, 305, 20);
+        contentPane.add(txtFecha);
+        txtFecha.setColumns(10);
+
+        JLabel lblProyeccion = new JLabel("Proyeccion:");
+        lblProyeccion.setBounds(10, 341, 150, 14);
+        contentPane.add(lblProyeccion);
+
+        JTextField txtProyeccion = new JTextField();
+        txtProyeccion.setBounds(200, 341, 305, 20);
+        contentPane.add(txtProyeccion);
+        txtProyeccion.setColumns(10);
+
+        JButton btnAceptar=new JButton("Aceptar");
+        btnAceptar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String nombrePelicula = txtNombrePelicula.getText();
+                String genero = txtGenero.getText();
+                String sala = txtSala.getText();
+                String denominacion=txtDenominacion.getText();
+                String asientos=txtAsientos.getText();
+                String duracionEnMinutos = txtDuracionEnMinutos.getText();
+                String director = txtDirector.getText();
+                String proyeccion = txtProyeccion.getText();
+                String peliculaID = txtPeliculaID.getText();
+                String funcionID = txtFuncionID.getText();
+                String horario = txtHorario.getText();
+                String fecha = txtFecha.getText();
+
+
+                FuncionDto funcionDto=new FuncionDto(horario,funcionID,fecha);
+                PeliculaDto peliculaDto=new PeliculaDto(genero,nombrePelicula,duracionEnMinutos,director,new ArrayList<String>(),proyeccion,peliculaID);
+                SalaDto salaDto=new SalaDto(sala,denominacion,asientos);
+
+                FuncionController funcion=FuncionController.getInstancia();
+
+
+                boolean existe;
+                try {
+                     existe=funcion.nuevaFuncion(funcionDto,peliculaDto,salaDto);
+                } catch (ParseException ex) {
+                    throw new RuntimeException(ex);
+                }
+
+
+                if(existe) {
+                    JOptionPane.showMessageDialog(null, "La funcion:"+ funcionID+ " con la pelicula "+nombrePelicula+"fue creado correctamente");
+                }
+                else {
+                    JOptionPane.showMessageDialog(null, "La funcion:"+ funcionID+ " con la pelicula "+nombrePelicula+"fue creado correctamente");
+                }
+
+
+            }
+        });
+        btnAceptar.setBounds(63, 400, 116, 23);
+        contentPane.add(btnAceptar);
+
+
+
+        JButton btnLimpiar=new JButton("Limpiar");
+        btnLimpiar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                txtNombrePelicula.setText("");
+                txtGenero.setText("");
+                txtDirector.setText("");
+                txtDuracionEnMinutos.setText("");
+                txtSala.setText("");
+                txtDenominacion.setText("");
+                txtAsientos.setText("");
+                txtPeliculaID.setText("");
+                txtFuncionID.setText("");
+                txtHorario.setText("");
+                txtFecha.setText("");
+                txtProyeccion.setText("");
+            }
+        });
+        btnLimpiar.setBounds(200, 400, 116, 23);
+        contentPane.add(btnLimpiar);
+
+
+
+        JButton btnSalir=new JButton("Salir");
+        btnSalir.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                dispose();
+            }
+        });
+        btnSalir.setBounds(340, 400, 116, 23);
+        contentPane.add(btnSalir);
+
+    }
 }

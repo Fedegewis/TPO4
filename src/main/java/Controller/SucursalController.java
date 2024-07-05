@@ -124,8 +124,9 @@ public class SucursalController {
     public boolean registrarFuncionPorGenero(FuncionDto funcionDto, PeliculaDto peliculaDto,int salaID) throws ParseException {
         boolean resultado=false;
         Sala sala=getSalaByID(salaID);
+        SalaDto salaDto=deSalaADTO(sala);
         if(sala!=null){
-            resultado=funcionController.nuevaFuncion(funcionDto,peliculaDto,sala);
+            resultado=funcionController.nuevaFuncion(funcionDto,peliculaDto,salaDto);
         }
         else {
             System.out.println("La sala no existe");
@@ -137,4 +138,8 @@ public class SucursalController {
         return sucursales;
     }
 
+
+    public SalaDto deSalaADTO(Sala sala){
+        return new SalaDto(String.valueOf(sala.getSalaID()),sala.getDenominacion(),String.valueOf(sala.getAsientos()));
+    }
 }

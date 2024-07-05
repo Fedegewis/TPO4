@@ -37,10 +37,11 @@ public class FuncionController {
     /**
      * Default constructor
      */
-    public boolean nuevaFuncion(FuncionDto funcionDto, PeliculaDto peliculaDto,Sala sala) throws ParseException {
+    public boolean nuevaFuncion(FuncionDto funcionDto, PeliculaDto peliculaDto,SalaDto salaDto) throws ParseException {
         boolean resultado = false;
         Funcion funcion=buscarFuncionPorID(funcionDto);
         Pelicula pelicula=peliculasController.getPelicula(peliculaDto.getPeliculaID());
+        Sala sala= deDtoASala(salaDto);
         if(funcion==null){
             if(pelicula!=null){
                 funcion=deDtoAFuncion(funcionDto,pelicula,sala);
@@ -133,6 +134,10 @@ public class FuncionController {
         SimpleDateFormat dateFormat=new SimpleDateFormat("dd/MM/yyyy");
         Funcion funcion = new Funcion(dateFormat.parse(dto.getFecha()),Integer.parseInt(dto.getFuncionID()),dto.getHorario(),sala,pelicula);
         return funcion;
+    }
+
+    public Sala deDtoASala(SalaDto salaDto){
+        return new Sala(Integer.parseInt(salaDto.getSalaID()),salaDto.getDenominacion(),Integer.parseInt(salaDto.getAsientos()));
     }
 
 }
