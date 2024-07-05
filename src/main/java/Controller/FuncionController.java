@@ -41,7 +41,7 @@ public class FuncionController {
         boolean resultado = false;
         Funcion funcion=buscarFuncionPorID(funcionDto);
         Pelicula pelicula=peliculasController.getPelicula(peliculaDto.getPeliculaID());
-        Sala sala= deDtoASala(salaDto);
+        Sala sala=deDtoASala(salaDto);
         if(funcion==null){
             if(pelicula!=null){
                 funcion=deDtoAFuncion(funcionDto,pelicula,sala);
@@ -139,5 +139,4 @@ public class FuncionController {
     public Sala deDtoASala(SalaDto salaDto){
         return new Sala(Integer.parseInt(salaDto.getSalaID()),salaDto.getDenominacion(),Integer.parseInt(salaDto.getAsientos()));
     }
-
 }

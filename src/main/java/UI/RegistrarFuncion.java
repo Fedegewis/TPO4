@@ -1,6 +1,7 @@
 package UI;
 
 import Controller.FuncionController;
+import Controller.SucursalController;
 import DTO.FuncionDto;
 import DTO.PeliculaDto;
 import DTO.SalaDto;
@@ -30,26 +31,7 @@ public class RegistrarFuncion extends JFrame {
         });
     }
 
-    //esto le tengo que mandar a registrar funcion public boolean nuevaFuncion(FuncionDto funcionDto, PeliculaDto peliculaDto,Sala sala)
 
-    /*Funcion DTO tiene:
-    private PeliculaDto pelicula;
-    private String funcionID;
-    private String horario;
-    private String fecha;
-    private SalaDto sala;
-
-     */
-
-    /*Pelicula DTO tiene:
-    private String genero;
-    private String nombrePelicula;
-    private String duracionEnMinutos;
-    private String director;
-    private List<String> actores=new ArrayList<String>();
-    private String proyeccion;
-    private String peliculaID;
-     */
 
 
     public RegistrarFuncion() {
@@ -176,8 +158,6 @@ public class RegistrarFuncion extends JFrame {
                 String nombrePelicula = txtNombrePelicula.getText();
                 String genero = txtGenero.getText();
                 String sala = txtSala.getText();
-                String denominacion=txtDenominacion.getText();
-                String asientos=txtAsientos.getText();
                 String duracionEnMinutos = txtDuracionEnMinutos.getText();
                 String director = txtDirector.getText();
                 String proyeccion = txtProyeccion.getText();
@@ -189,24 +169,24 @@ public class RegistrarFuncion extends JFrame {
 
                 FuncionDto funcionDto=new FuncionDto(horario,funcionID,fecha);
                 PeliculaDto peliculaDto=new PeliculaDto(genero,nombrePelicula,duracionEnMinutos,director,new ArrayList<String>(),proyeccion,peliculaID);
-                SalaDto salaDto=new SalaDto(sala,denominacion,asientos);
 
-                FuncionController funcion=FuncionController.getInstancia();
+
+                SucursalController sucursalController=SucursalController.getInstancia();
 
 
                 boolean existe;
                 try {
-                     existe=funcion.nuevaFuncion(funcionDto,peliculaDto,salaDto);
+                     existe=sucursalController.registrarFuncionPorGenero(funcionDto,peliculaDto,Integer.parseInt(sala));
                 } catch (ParseException ex) {
                     throw new RuntimeException(ex);
                 }
 
 
                 if(existe) {
-                    JOptionPane.showMessageDialog(null, "La funcion:"+ funcionID+ " con la pelicula "+nombrePelicula+"fue creado correctamente");
+                    JOptionPane.showMessageDialog(null, "La funcion:"+ funcionID+ " con la pelicula "+nombrePelicula+" fue creado correctamente");
                 }
                 else {
-                    JOptionPane.showMessageDialog(null, "La funcion:"+ funcionID+ " con la pelicula "+nombrePelicula+"fue creado correctamente");
+                    JOptionPane.showMessageDialog(null, "La funcion:"+ funcionID+ " con la pelicula "+nombrePelicula+" no fue creada correctamente");
                 }
 
 
