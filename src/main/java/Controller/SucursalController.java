@@ -26,6 +26,17 @@ public class SucursalController {
     private  SucursalController() {
     	sucursales = new ArrayList<Sucursal>();
     	sucursales.add(new Sucursal(1, "Barracas", "Av Montes de Oca 1100"));
+        //RAMI PONGO ESTO ACA ASI YA ESTA HARDCOADEADO
+        SucursalDto sucursalDto=new SucursalDto("15","Caballito","Riavdavia 5071");
+        SucursalDto sucursalDto2=new SucursalDto("60","Caballito","Av La Plata 96");
+        SalaDto salaDto=new SalaDto("1","aaaaa","60");
+        SalaDto salaDto2=new SalaDto("2","bbbb","50");
+        FuncionDto funcionDto= new FuncionDto("22:00","10","31/08/2024");
+        FuncionDto funcionDto2= new FuncionDto("20:00","2","31/08/2024");
+       agregarSucursal(sucursalDto);
+       agregarSucursal(sucursalDto2);
+       agregarSala(salaDto,1);
+       agregarSala(salaDto2,1);
 
     	
     }
