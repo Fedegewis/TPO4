@@ -19,7 +19,7 @@ public class PeliculasController {
     private PeliculasController() {
     	
     	peliculas= new ArrayList<Pelicula>();
-    	peliculas.add(new Pelicula(TipoGenero.Suspenso, "Pelicula1", 180 , "Director X", TipoProyeccion.DosD, Arrays.asList("Actriz Principal", "Actor Secundario"),null));
+    	peliculas.add(new Pelicula(TipoGenero.Suspenso, "Pelicula1", 180 , "Director X", TipoProyeccion.DosD, Arrays.asList("Actriz Principal", "Actor Secundario"),null,1));
 
     }
     public static PeliculasController getInstance() {
@@ -29,17 +29,41 @@ public class PeliculasController {
         return instance;
     }
 
-    public Pelicula getPelicula(PeliculaDto peliculaDto){
+    public Pelicula getPelicula(String id){
         Pelicula pelicula=null;
         for(Pelicula p: peliculas){
-            if(p.getDirector().equals(peliculaDto.getDirector()) && p.getNombrePelicula().equals(peliculaDto.getNombrePelicula())){
+            if(p.getPeliculaID()==Integer.parseInt(id)){
                 pelicula=p;
             }
         }
         return pelicula;
     }
-
-
+    public boolean agregarPelicula(PeliculaDto dto){
+        boolean resultado=false;
+        Pelicula pelicula=getPelicula(dto.getPeliculaID());
+        if(pelicula==null){
+            pelicula=deDtoAPelicula(dto);
+            peliculas.add(pelicula);
+            resultado=true;
+        }
+        else {
+            System.out.println("La pelicula ya existe");
+        }
+        return resultado;
+    }
+    public Pelicula deDtoAPelicula(PeliculaDto dto){
+        Pelicula pelicula=new Pelicula(TipoGenero.valueOf(dto.getGenero()),dto.getDirector(),Integer.parseInt(dto.getDuracionEnMinutos()), dto.getNombrePelicula(), TipoProyeccion.valueOf(dto.getProyeccion()),dto.getActores(),null,Integer.parseInt(dto.getPeliculaID()));
+        return pelicula;
+    }
+    public List<Pelicula> consultarPeliculasPorGenero(TipoGenero genero){
+        List<Pelicula> aux=new ArrayList<Pelicula>();
+        for(Pelicula p: peliculas){
+            if(p.getGeneroID().equals(genero)){
+                aux.add(p);
+            }
+        }
+        return aux;
+    }
     public void ABM() {
         // TODO implement here
     }

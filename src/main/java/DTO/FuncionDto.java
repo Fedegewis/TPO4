@@ -9,12 +9,12 @@ public class FuncionDto {
 
 
 
-    public FuncionDto(String horario, String funcionID, PeliculaDto pelicula, String fecha, SalaDto sala) {
+    public FuncionDto(String horario, String funcionID, String fecha) {
         this.horario = horario;
         this.funcionID = funcionID;
-        this.pelicula = pelicula;
+        //this.pelicula = pelicula;
         this.fecha = fecha;
-        this.sala = sala;
+       // this.sala = sala;
     }
 
     public PeliculaDto getPelicula() {

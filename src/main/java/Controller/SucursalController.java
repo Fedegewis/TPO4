@@ -1,10 +1,13 @@
 package Controller;
 
+import DTO.FuncionDto;
+import DTO.PeliculaDto;
 import DTO.SalaDto;
 import DTO.SucursalDto;
 import Model.Sala;
 import Model.Sucursal;
 
+import java.text.ParseException;
 import java.util.*;
 
 
@@ -18,6 +21,7 @@ public class SucursalController {
      */
 	private static SucursalController instancia= null;
 	private List<Sucursal> sucursales;
+    private FuncionController funcionController=FuncionController.getInstancia();
 		
     private  SucursalController() {
     	sucursales = new ArrayList<Sucursal>();
@@ -39,7 +43,7 @@ public class SucursalController {
     public Sucursal getSucursal(SucursalDto dto){
         Sucursal sucursal=null;
         for(Sucursal suc:sucursales){
-            if (!suc.getDireccion().equals(dto.getDireccion())){
+            if (suc.getSucursalID()==Integer.parseInt(dto.getSucursalID())){
                 sucursal=suc;
             }
         }
@@ -105,6 +109,32 @@ public class SucursalController {
     public Sala deDtoASala(SalaDto dto){
         Sala sala=new Sala(Integer.parseInt(dto.getSalaID()),dto.getDenominacion(),Integer.parseInt(dto.getAsientos()));
         return sala;
+    }
+    public Sala getSalaByID(int id){
+        Sala sala=null;
+        for(Sucursal suc:sucursales){
+            for (Sala s:suc.getSalas()){
+                if (s.getSalaID()==id){
+                    sala=s;
+                }
+            }
+        }
+        return sala;
+    }
+    public boolean registrarFuncionPorGenero(FuncionDto funcionDto, PeliculaDto peliculaDto,int salaID) throws ParseException {
+        boolean resultado=false;
+        Sala sala=getSalaByID(salaID);
+        if(sala!=null){
+            resultado=funcionController.nuevaFuncion(funcionDto,peliculaDto,sala);
+        }
+        else {
+            System.out.println("La sala no existe");
+        }
+        return resultado;
+    }
+
+    public List<Sucursal> getSucursales(){
+        return sucursales;
     }
 
 }

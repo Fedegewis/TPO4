@@ -6,6 +6,8 @@ import DTO.PeliculaDto;
 import DTO.SalaDto;
 import Model.*;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 /**
@@ -16,12 +18,13 @@ public class FuncionController {
 	private List<Funcion> funciones;
 
 	private static FuncionController instancia;
+    private PeliculasController peliculasController=PeliculasController.getInstance();
 	
 	private FuncionController() {
 
         funciones = new ArrayList<Funcion>();
-    	funciones.add(new Funcion(new Date(), 1, "11:00", new ArrayList<Entrada>(), new Sala(0, null, 0),
-                new Pelicula(TipoGenero.Terror,"steven spielberg",120,"Tiburon", TipoProyeccion.DosD,new ArrayList<>(),null)));
+    	funciones.add(new Funcion(new Date(), 1, "11:00", new Sala(0, null, 0),
+                new Pelicula(TipoGenero.Terror,"steven spielberg",120,"Tiburon", TipoProyeccion.DosD,new ArrayList<>(),null,2)));
 
     }
     public static FuncionController getInstancia() {
@@ -34,15 +37,24 @@ public class FuncionController {
     /**
      * Default constructor
      */
-    public boolean nuevaFuncion(FuncionDto funcion, PeliculaDto pelicula){
-        PeliculasController peliculasController = PeliculasController.getInstance();
-        Pelicula peliculaOK=peliculasController.getPelicula(pelicula);
-        if(funcion != null && pelicula !=null ){
-            if (peliculaOK!=null){
-
+    public boolean nuevaFuncion(FuncionDto funcionDto, PeliculaDto peliculaDto,Sala sala) throws ParseException {
+        boolean resultado = false;
+        Funcion funcion=buscarFuncionPorID(funcionDto);
+        Pelicula pelicula=peliculasController.getPelicula(peliculaDto.getPeliculaID());
+        if(funcion==null){
+            if(pelicula!=null){
+                funcion=deDtoAFuncion(funcionDto,pelicula,sala);
+                funciones.add(funcion);
+                resultado=true;
+            }
+            else{
+                System.out.println("El Pelicula no existe");
             }
         }
-
+        else{
+            System.out.println("El Funcion Ya existe");
+        }
+        return resultado;
     }
 
 
@@ -108,11 +120,19 @@ public class FuncionController {
         }
         return funciones;
     }
-
-    public static Funcion toModel(FuncionDto funcionDto,Pelicula pelicula){
-        return new Funcion(Date.parse(funcionDto.getFecha()),Integer.parseInt(funcionDto.getFuncionID()),funcionDto.getHorario(),
-              funcionDto.getSala(),pelicula);
+    public Funcion buscarFuncionPorID(FuncionDto dto) {
+        Funcion funcion = null;
+        for (Funcion func : funciones) {
+            if (func.getFuncionID()==Integer.parseInt(dto.getFuncionID())){
+                funcion = func;
+            }
+        }
+        return funcion;
+    }
+    public Funcion deDtoAFuncion(FuncionDto dto,Pelicula pelicula,Sala sala) throws ParseException {
+        SimpleDateFormat dateFormat=new SimpleDateFormat("dd/MM/yyyy");
+        Funcion funcion = new Funcion(dateFormat.parse(dto.getFecha()),Integer.parseInt(dto.getFuncionID()),dto.getHorario(),sala,pelicula);
+        return funcion;
     }
 
-    public static Sala toModel(SalaDto salaDto){}
 }

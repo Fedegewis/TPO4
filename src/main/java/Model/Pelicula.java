@@ -13,10 +13,12 @@ public class Pelicula {
     private List<String> actores;
     private TipoProyeccion tipo;
     private CondicionesDescuento condicionesDescuento;
+
+    private int peliculaID;
     /**
      * Default constructor
      */
-    public Pelicula(TipoGenero generoID, String director, int duracionEnMinutos, String nombrePelicula, TipoProyeccion tipo, List<String> actores, CondicionesDescuento descuento) {
+    public Pelicula(TipoGenero generoID, String director, int duracionEnMinutos, String nombrePelicula, TipoProyeccion tipo, List<String> actores,CondicionesDescuento descuento,int peliculaID) {
     
     this.actores = actores;
     this.director = director;
@@ -25,6 +27,7 @@ public class Pelicula {
     this.nombrePelicula = nombrePelicula;
     this.tipo = tipo;
     this.condicionesDescuento = descuento;
+    this.peliculaID=peliculaID;
     
     }
 
@@ -62,7 +65,7 @@ public class Pelicula {
      */
     public int getPeliculaID() {
         // TODO implement here
-        return 0;
+        return peliculaID;
     }
 
 }

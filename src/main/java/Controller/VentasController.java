@@ -1,6 +1,6 @@
 package Controller;
 
-import DTO.FuncionDTO;
+import DTO.FuncionDto;
 import DTO.FuncionDto;
 import DTO.VentaDto;
 import Model.*;
@@ -101,7 +101,7 @@ public class VentasController {
      * @param genero
      * @return
      */
-    public List<VentaDto> funcionesVendidasPorGenero(TipoGenero genero) {
+    /*public List<VentaDto> funcionesVendidasPorGenero(TipoGenero genero) {
         List<VentaDto> ventaDtos = new ArrayList<>();
         List<Funcion> funciones = funcionController.buscarPeliculaPorGenerosFuncion(genero);
         if(funciones.isEmpty()){
@@ -116,13 +116,13 @@ public class VentasController {
         return ventaDtos;
     }
 
-    public VentaDto modelVentaToDto(Venta venta){
-        return new VentaDto(String.valueOf(venta.getVentaID()),String.valueOf(venta.getFchVenta()),new ArrayList<String>(),
-                String.valueOf(venta.getTarjetaDescuento()),modelFuncionToDto(venta.getFuncion()));
-    }
+    //public VentaDto modelVentaToDto(Venta venta){
+       // return new VentaDto(String.valueOf(venta.getVentaID()),String.valueOf(venta.getFchVenta()),new ArrayList<String>(),
+     //           String.valueOf(venta.getTarjetaDescuento()),modelFuncionToDto(venta.getFuncion()));
+   // }
 
-    public FuncionDto modelFuncionToDto(Funcion funcion){
-        return new FuncionDto(funcion);
-    }
-
+    //public FuncionDto modelFuncionToDto(Funcion funcion){
+      //  return new FuncionDto(funcion);
+   // }
+*/
 }

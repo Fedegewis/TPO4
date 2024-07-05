@@ -10,14 +10,16 @@ public class PeliculaDto {
     private String director;
     private List<String> actores=new ArrayList<String>();
     private String proyeccion;
+    private String peliculaID;
 
-    public PeliculaDto(String genero, String nombrePelicula, String duracionEnMinutos, String director, List<String> actores, String proyeccion) {
+    public PeliculaDto(String genero, String nombrePelicula, String duracionEnMinutos, String director, List<String> actores, String proyeccion,String peliculaID) {
         this.genero = genero;
         this.nombrePelicula = nombrePelicula;
         this.duracionEnMinutos = duracionEnMinutos;
         this.director = director;
         this.actores = actores;
         this.proyeccion = proyeccion;
+        this.peliculaID=peliculaID;
     }
 
     public String getGenero() {
@@ -68,5 +70,7 @@ public class PeliculaDto {
         this.proyeccion = proyeccion;
     }
 
-
+    public String getPeliculaID() {
+        return peliculaID;
+    }
 }
