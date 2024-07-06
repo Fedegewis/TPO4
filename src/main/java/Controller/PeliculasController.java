@@ -64,6 +64,15 @@ public class PeliculasController {
         }
         return aux;
     }
+
+    public List<Pelicula> consultarPeliculas(){
+        List<Pelicula> aux=new ArrayList<Pelicula>();
+        for(Pelicula p: peliculas){
+            aux.add(p);
+        }
+        return aux;
+    }
+
     public void ABM() {
         // TODO implement here
     }

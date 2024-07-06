@@ -36,7 +36,7 @@ public class RegistrarFuncion extends JFrame {
 
     public RegistrarFuncion() {
         setTitle("Registrar Funcion");
-        setBounds(100, 100, 600, 550);
+        setBounds(100, 100, 600, 450);
         JPanel contentPane = new JPanel();
         contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
         setContentPane(contentPane);
@@ -88,66 +88,48 @@ public class RegistrarFuncion extends JFrame {
         contentPane.add(txtSala);
         txtSala.setColumns(10);
 
-        JLabel lblDenominacionSala = new JLabel("Denominacion de Sala:");
-        lblDenominacionSala.setBounds(10, 161, 150, 14);
-        contentPane.add(lblDenominacionSala);
-
-        JTextField txtDenominacion = new JTextField();
-        txtDenominacion.setBounds(200, 161, 305, 20);
-        contentPane.add(txtDenominacion);
-        txtDenominacion.setColumns(10);
-
-        JLabel lblAsientos = new JLabel("Cantidad de Asientos:");
-        lblAsientos.setBounds(10, 191, 150, 14);
-        contentPane.add(lblAsientos);
-
-        JTextField txtAsientos = new JTextField();
-        txtAsientos.setBounds(200, 191, 305, 20);
-        contentPane.add(txtAsientos);
-        txtAsientos.setColumns(10);
-
         JLabel lblPeliculaID = new JLabel("Pelicula ID:");
-        lblPeliculaID.setBounds(10, 221, 150, 14);
+        lblPeliculaID.setBounds(10, 161, 150, 14);
         contentPane.add(lblPeliculaID);
 
         JTextField txtPeliculaID = new JTextField();
-        txtPeliculaID.setBounds(200, 221, 305, 20);
+        txtPeliculaID.setBounds(200, 161, 305, 20);
         contentPane.add(txtPeliculaID);
         txtPeliculaID.setColumns(10);
 
         JLabel lblFuncionID = new JLabel("Numero de funcion:");
-        lblFuncionID.setBounds(10, 251, 150, 14);
+        lblFuncionID.setBounds(10, 191, 150, 14);
         contentPane.add(lblFuncionID);
 
         JTextField txtFuncionID = new JTextField();
-        txtFuncionID.setBounds(200, 251, 305, 20);
+        txtFuncionID.setBounds(200, 191, 305, 20);
         contentPane.add(txtFuncionID);
         txtFuncionID.setColumns(10);
 
         JLabel lblHorario = new JLabel("Horario:");
-        lblHorario.setBounds(10, 281, 150, 14);
+        lblHorario.setBounds(10, 221, 150, 14);
         contentPane.add(lblHorario);
 
         JTextField txtHorario = new JTextField();
-        txtHorario.setBounds(200, 281, 305, 20);
+        txtHorario.setBounds(200, 221, 305, 20);
         contentPane.add(txtHorario);
         txtHorario.setColumns(10);
 
         JLabel lblFecha = new JLabel("Fecha:");
-        lblFecha.setBounds(10, 311, 150, 14);
+        lblFecha.setBounds(10, 251, 150, 14);
         contentPane.add(lblFecha);
 
         JTextField txtFecha = new JTextField();
-        txtFecha.setBounds(200, 311, 305, 20);
+        txtFecha.setBounds(200, 251, 305, 20);
         contentPane.add(txtFecha);
         txtFecha.setColumns(10);
 
         JLabel lblProyeccion = new JLabel("Proyeccion:");
-        lblProyeccion.setBounds(10, 341, 150, 14);
+        lblProyeccion.setBounds(10, 281, 150, 14);
         contentPane.add(lblProyeccion);
 
         JTextField txtProyeccion = new JTextField();
-        txtProyeccion.setBounds(200, 341, 305, 20);
+        txtProyeccion.setBounds(200, 281, 305, 20);
         contentPane.add(txtProyeccion);
         txtProyeccion.setColumns(10);
 
@@ -192,7 +174,7 @@ public class RegistrarFuncion extends JFrame {
 
             }
         });
-        btnAceptar.setBounds(63, 400, 116, 23);
+        btnAceptar.setBounds(63, 320, 116, 23);
         contentPane.add(btnAceptar);
 
 
@@ -206,8 +188,6 @@ public class RegistrarFuncion extends JFrame {
                 txtDirector.setText("");
                 txtDuracionEnMinutos.setText("");
                 txtSala.setText("");
-                txtDenominacion.setText("");
-                txtAsientos.setText("");
                 txtPeliculaID.setText("");
                 txtFuncionID.setText("");
                 txtHorario.setText("");
@@ -215,7 +195,7 @@ public class RegistrarFuncion extends JFrame {
                 txtProyeccion.setText("");
             }
         });
-        btnLimpiar.setBounds(200, 400, 116, 23);
+        btnLimpiar.setBounds(200, 320, 116, 23);
         contentPane.add(btnLimpiar);
 
 
@@ -227,7 +207,7 @@ public class RegistrarFuncion extends JFrame {
                 dispose();
             }
         });
-        btnSalir.setBounds(340, 400, 116, 23);
+        btnSalir.setBounds(340, 320, 116, 23);
         contentPane.add(btnSalir);
 
     }
