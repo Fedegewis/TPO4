@@ -45,7 +45,6 @@ public class ConsultarPeliculas extends JFrame  {
     }
 
     public String[][] convertDtoToData (Collection<PeliculaDto> dtos){
-
         List<PeliculaDto> dtoList=new ArrayList<>(dtos);
         String[] [] data=new String[dtos.size()][4];
         for (int i=0;i<dtoList.size();i++){
