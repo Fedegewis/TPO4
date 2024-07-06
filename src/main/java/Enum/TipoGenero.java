@@ -9,4 +9,5 @@ public enum TipoGenero {
     Terror,
     Biografica,
     Suspenso
+
 }

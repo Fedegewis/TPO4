@@ -54,21 +54,21 @@ public class PeliculasController {
         Pelicula pelicula=new Pelicula(TipoGenero.valueOf(dto.getGenero()),dto.getDirector(),Integer.parseInt(dto.getDuracionEnMinutos()), dto.getNombrePelicula(), TipoProyeccion.valueOf(dto.getProyeccion()),dto.getActores(),null,Integer.parseInt(dto.getPeliculaID()));
         return pelicula;
     }
-    public List<Pelicula> consultarPeliculasPorGenero(TipoGenero genero){
-        List<Pelicula> aux=new ArrayList<Pelicula>();
+    public List<PeliculaDto> consultarPeliculasPorGenero(TipoGenero genero){
+        List<PeliculaDto> aux=new ArrayList<PeliculaDto>();
         for(Pelicula p: peliculas){
             if(p.getGeneroID().equals(genero)){
-                aux.add(p);
+                aux.add(toDto(p));
 
             }
         }
         return aux;
     }
 
-    public List<Pelicula> consultarPeliculas(){
-        List<Pelicula> aux=new ArrayList<Pelicula>();
+    public List<PeliculaDto> consultarPeliculas(){
+        List<PeliculaDto> aux=new ArrayList<PeliculaDto>();
         for(Pelicula p: peliculas){
-            aux.add(p);
+            aux.add(toDto(p));
         }
         return aux;
     }
@@ -76,5 +76,13 @@ public class PeliculasController {
     public void ABM() {
         // TODO implement here
     }
+
+
+    public static PeliculaDto toDto(Pelicula p){
+        return new PeliculaDto(String.valueOf(p.getGeneroID()),p.getNombrePelicula(),
+                String.valueOf(p.getDuracionEnMinutos()),p.getDirector(),
+                p.getActores(),String.valueOf(p.getTipo()),String.valueOf(p.getPeliculaID()));
+    }
+
 
 }

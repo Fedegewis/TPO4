@@ -2,9 +2,13 @@ package UI;
 
 import Controller.PeliculasController;
 import DTO.PeliculaDto;
+import Model.TipoGenero;
 
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -14,6 +18,8 @@ public class ConsultarPeliculas extends JFrame  {
     private JPanel topPanel;
     private JTable table;
     private JScrollPane scrollPane;
+    private JTextField txtGenero;
+    private JButton btnBuscar;
     private String[] columns= new String[4];
     private String [] [] data=new String[4][4];
     PeliculasController peliculasController=null;
@@ -36,12 +42,35 @@ public class ConsultarPeliculas extends JFrame  {
 
     public ConsultarPeliculas(){
         setTitle("Peliculas registradas");
-        setSize(400,400);
+        setSize(500,600);
         JPanel topPanel=new JPanel();
-        topPanel.setLayout(new BorderLayout());
+        topPanel.setLayout(new FlowLayout());
         getContentPane().add(topPanel);
-        columns=new String[]{"Genero","Nombre","Duracion","Director"};
+        txtGenero = new JTextField(20);
+        topPanel.add(txtGenero);
+        btnBuscar = new JButton("Buscar");
+        btnBuscar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                DefaultTableModel model = (DefaultTableModel) table.getModel();
+                model.setRowCount(0);
+                String genero = txtGenero.getText();
+                List<PeliculaDto> peliculas = peliculasController.consultarPeliculasPorGenero(TipoGenero.valueOf(genero));
+                data = convertDtoToData(peliculas);
+                model.setDataVector(data, columns);
+                table.setModel(model);
+            }
+        });
 
+        topPanel.add(btnBuscar, BorderLayout.NORTH);
+        columns=new String[]{"Genero","Nombre","Duracion","Director"};
+        peliculasController =PeliculasController.getInstance();
+        data=convertDtoToData(peliculasController.consultarPeliculas());
+        DefaultTableModel model = new DefaultTableModel(data,columns);
+        table=new JTable();
+        table.setModel(model);
+        scrollPane=new JScrollPane(table);
+        topPanel.add(scrollPane,BorderLayout.CENTER);
     }
 
     public String[][] convertDtoToData (Collection<PeliculaDto> dtos){
@@ -56,9 +85,4 @@ public class ConsultarPeliculas extends JFrame  {
         return data;
     }
 
-    /* private String genero;
-    private String nombrePelicula;
-    private String duracionEnMinutos;
-    private String director;
-    private List<String> actores=*/
 }

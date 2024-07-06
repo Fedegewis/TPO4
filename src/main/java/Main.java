@@ -34,7 +34,7 @@ public class Main {
 
         peliculasController.agregarPelicula(peliculaDto);
         peliculasController.agregarPelicula(peliculaDto2);
-       List<Pelicula> suspenso= peliculasController.consultarPeliculasPorGenero(TipoGenero.Terror);
+       List<PeliculaDto> suspenso= peliculasController.consultarPeliculasPorGenero(TipoGenero.Terror);
         System.out.println(peliculasController.agregarPelicula(peliculaDto));
 
         System.out.println(sucursalController.registrarFuncionPorGenero(funcionDto,peliculaDto,2));
@@ -44,10 +44,10 @@ public class Main {
                 System.out.println(sala.getSalaID());
             }
         }
-
+/*
         for (Pelicula p:suspenso){
             System.out.println(p.getPeliculaID()+" "+p.getNombrePelicula());
-        }
+        }*/
 
     }
 }

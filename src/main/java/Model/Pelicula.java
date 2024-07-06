@@ -68,4 +68,31 @@ public class Pelicula {
         return peliculaID;
     }
 
+    public int getDuracionEnMinutos() {
+        return duracionEnMinutos;
+    }
+
+    public void setDuracionEnMinutos(int duracionEnMinutos) {
+        this.duracionEnMinutos = duracionEnMinutos;
+    }
+
+    public List<String> getActores() {
+        return actores;
+    }
+
+    public void setActores(List<String> actores) {
+        this.actores = actores;
+    }
+
+    public TipoProyeccion getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(TipoProyeccion tipo) {
+        this.tipo = tipo;
+    }
+
+    public void setPeliculaID(int peliculaID) {
+        this.peliculaID = peliculaID;
+    }
 }

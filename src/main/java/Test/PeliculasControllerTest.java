@@ -43,8 +43,8 @@ class PeliculasControllerTest {
 
         peliculasController.agregarPelicula(peliculaDto);
         peliculasController.agregarPelicula(peliculaDto2);
-        List<Pelicula> Terror= peliculasController.consultarPeliculasPorGenero(TipoGenero.Terror);
-        List<Pelicula> Suspenso= peliculasController.consultarPeliculasPorGenero(TipoGenero.Suspenso);
+        List<PeliculaDto> Terror= peliculasController.consultarPeliculasPorGenero(TipoGenero.Terror);
+        List<PeliculaDto> Suspenso= peliculasController.consultarPeliculasPorGenero(TipoGenero.Suspenso);
         assertEquals(1,Terror.size());
         assertEquals(1,Suspenso.size());
 
