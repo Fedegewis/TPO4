@@ -38,6 +38,9 @@ public class ConsultarPeliculas extends JFrame  {
         setTitle("Peliculas registradas");
         setSize(400,400);
         JPanel topPanel=new JPanel();
+        topPanel.setLayout(new BorderLayout());
+        getContentPane().add(topPanel);
+        columns=new String[]{"Genero","Nombre","Duracion","Director"};
 
     }
 
