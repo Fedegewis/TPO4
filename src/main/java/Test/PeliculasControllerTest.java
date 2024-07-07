@@ -38,15 +38,15 @@ class PeliculasControllerTest {
         List<String> actores=new ArrayList<String>();
         actores.add("Michael Cane");
         actores.add("Matthew McCounaghey");
-        PeliculaDto peliculaDto= new PeliculaDto("Suspenso","Interstellar","180","Christopher Nolan",actores,"TresD","20");
-        PeliculaDto peliculaDto2= new PeliculaDto("Terror","Inception","180","Christopher Nolan",actores,"TresD","30");
+        PeliculaDto peliculaDto= new PeliculaDto("Suspenso","Interstellar 2","180","Christopher Nolan",actores,"TresD","21");
+        PeliculaDto peliculaDto2= new PeliculaDto("Terror","Inception 2","180","Christopher Nolan",actores,"TresD","31");
 
         peliculasController.agregarPelicula(peliculaDto);
         peliculasController.agregarPelicula(peliculaDto2);
         List<PeliculaDto> Terror= peliculasController.consultarPeliculasPorGenero(TipoGenero.Terror);
         List<PeliculaDto> Suspenso= peliculasController.consultarPeliculasPorGenero(TipoGenero.Suspenso);
-        assertEquals(1,Terror.size());
-        assertEquals(1,Suspenso.size());
+        assertEquals(2,Terror.size());
+        assertEquals(2,Suspenso.size());
 
     }
 }
