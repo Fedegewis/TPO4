@@ -60,48 +60,6 @@ public class FuncionController {
 
 
 
-
-    /**
-     * 
-     */
-    public void ABM() {
-        // TODO implement here
-    }
-
-    /**
-     * @param funcionID 
-     * @return
-     */
-    public int obtenerAsientosDisponiblePorFuncion(int funcionID) {
-    	int asientos = -1;
-		return asientos;
-    }
-
-    /**
-     * @param fchFuncion 
-     * @return
-     */
-    public List<FuncionDto> getListaFunciones(Date fchFuncion) {
-        // TODO implement here
-        return null;
-    }
-
-    /**
-     * @return
-     */
-    public int peliculaMasVista() {
-        // TODO implement here
-        return 0;
-    }
-
-    /**
-     * @return
-     */
-    public int diaDeLaSemanaConMenorVentas() {
-        // TODO implement here
-        return 0;
-    }
-
     public List<Funcion> buscarPeliculaPorFuncion(int peliculaID) {
         List<Funcion> funcionesDeLaPelicula = new ArrayList<>();
         for (Funcion funcion : funciones) {

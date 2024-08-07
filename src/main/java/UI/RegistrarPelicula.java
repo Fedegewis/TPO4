@@ -33,13 +33,6 @@ public class RegistrarPelicula extends JFrame {
 
     }
 
-/* private String genero;
-    private String nombrePelicula;
-    private String duracionEnMinutos;
-    private String director;
-    private List<String> actores=new ArrayList<String>();
-    private String proyeccion;
-    private String peliculaID;*/
 
 
 

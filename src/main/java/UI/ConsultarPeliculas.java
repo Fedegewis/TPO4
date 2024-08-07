@@ -41,6 +41,8 @@ public class ConsultarPeliculas extends JFrame  {
 
 
     public ConsultarPeliculas(){
+        peliculasController=PeliculasController.getInstance();
+        peliculasController.cargaInicial();
         setTitle("Peliculas registradas");
         setSize(500,600);
         JPanel topPanel=new JPanel();

@@ -28,6 +28,16 @@ public class PeliculasController {
         return instance;
     }
 
+    public void cargaInicial(){
+        List<String> actores=new ArrayList<String>();
+        actores.add("Michael Cane");
+        actores.add("Matthew McCounaghey");
+        PeliculaDto peliculaDto= new PeliculaDto("Suspenso","Interstellar 2","180","Christopher Nolan",actores,"TresD","21");
+        PeliculaDto peliculaDto2= new PeliculaDto("Terror","Inception 2","180","Christopher Nolan",actores,"TresD","31");
+
+        agregarPelicula(peliculaDto);
+        agregarPelicula(peliculaDto2);
+    }
     public Pelicula getPelicula(String id){
         Pelicula pelicula=null;
         for(Pelicula p: peliculas){
